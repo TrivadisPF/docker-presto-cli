@@ -12,6 +12,9 @@ ENV PRESTOSQL_VERSION=339 \
     PRESTOSQL_CLI_HOME=/opt/presto-cli \
     PRESTOSQL_CLI_JAR=/opt/presto-cli/presto-cli-${PRESTOSQL_VERSION}-executable.jar
 
+# Install Java
+RUN apk --no-cache add openjdk11 --repository=http://dl-cdn.alpinelinux.org/alpine/edge/community
+
 # Install PrestoSQL CLI
 RUN mkdir -p "/opt/presto-cli" \
  && wget "https://repo1.maven.org/maven2/io/prestosql/presto-cli/${PRESTOSQL_VERSION}/presto-cli-${PRESTOSQL_VERSION}-executable.jar" \
